@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import GlobalTheme from "./utils/GlobalTheme";
+import { ThemeProvider } from "styled-components";
+import Navbar from "./components/Navbar";
+import Home from "./Pages/Home";
+import Details from "./Pages/Details";
+import { Switch, Route } from "react-router-dom";
+import Footer from "./components/Footer";
+
+import { useGlobalContext } from "./context";
 
 function App() {
+  const { Theme } = useGlobalContext();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={Theme}>
+      <GlobalTheme background />
+      <Navbar background />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/details/:country">
+          <Details />
+        </Route>
+      </Switch>
+      <Footer />
+    </ThemeProvider>
   );
 }
 
