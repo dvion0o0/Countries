@@ -4,7 +4,7 @@ import styled from "styled-components";
 function Loading() {
   return (
     <Wrapper>
-      <div class="lds-roller">
+      <div className="lds-roller">
         <div></div>
         <div></div>
         <div></div>
