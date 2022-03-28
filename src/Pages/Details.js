@@ -14,7 +14,7 @@ function Details() {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `https://restcountries.eu/rest/v2/alpha/${country}`
+        `https://restcountries.com/v2/alpha/${country}`
       );
       const data = await response.json();
       setCountryDetails(data);
