@@ -18,7 +18,7 @@ const AppProvider = ({ children }) => {
   const fetchCountries = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("https://restcountries.eu/rest/v2/all");
+      const response = await fetch("https://restcountries.com/v2/all");
       const data = await response.json();
       setIsLoading(false);
       setCountriesList(data);
@@ -32,7 +32,7 @@ const AppProvider = ({ children }) => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `https://restcountries.eu/rest/v2/name/${input}`
+        `https://restcountries.com/v2/name/${input}`
       );
       const data = await response.json();
       setIsLoading(false);
@@ -48,7 +48,7 @@ const AppProvider = ({ children }) => {
     if (filterText) {
       try {
         const response = await fetch(
-          `https://restcountries.eu/rest/v2/region/${filterText}`
+          `https://restcountries.com/v2/region/${filterText}`
         );
         const data = await response.json();
         setIsLoading(false);
